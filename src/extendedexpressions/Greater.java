@@ -10,9 +10,7 @@ package extendedexpressions;
  * @author arieltodoki
  */
 public class Greater extends BiExpr{
-    public Greater(){
-        
-    }
+
     public Greater(Expr a, Expr b){
         one = a;
         two = b;

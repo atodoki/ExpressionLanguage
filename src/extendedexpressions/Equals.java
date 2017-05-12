@@ -10,9 +10,7 @@ package extendedexpressions;
  * @author arieltodoki
  */
 public class Equals extends BiExpr{
-    public Equals(){
-        
-    }
+
     public Equals(Expr a, Expr b){
         one = a;
         two = b;

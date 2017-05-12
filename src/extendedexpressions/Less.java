@@ -10,9 +10,7 @@ package extendedexpressions;
  * @author arieltodoki
  */
 public class Less extends BiExpr{
-    public Less(){
-        
-    }
+
     public Less(Expr a, Expr b){
         one = a;
         two = b;

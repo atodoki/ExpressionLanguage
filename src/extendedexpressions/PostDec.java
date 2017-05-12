@@ -15,7 +15,7 @@ public class PostDec extends Expr{
     public PostDec(Var v){
         var = v.print();
 
-        //expr = "("+var+"--)";
+
     }
     
     public int value(){

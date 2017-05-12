@@ -10,12 +10,10 @@ package extendedexpressions;
  * @author arieltodoki
  */
 public class Plus extends BiExpr{
-    public Plus(){
-        
-    }
+
 
     public Plus(Expr a, Expr b){
-//        expr = "("+a.print()+" + "+b.print()+")";
+
         one = a;
         two = b;
     }

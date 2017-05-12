@@ -10,9 +10,7 @@ package extendedexpressions;
  * @author arieltodoki
  */
 public class Sub extends BiExpr{
-    public Sub(){
-        
-    }
+
 
     public Sub(Expr a, Expr b){
         one = a;

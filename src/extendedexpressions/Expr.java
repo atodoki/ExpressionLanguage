@@ -18,10 +18,6 @@ public class Expr {
     static HashMap hm = new HashMap();
    
     
-//    public Expr(Expr e){
-//        expr = e.print();
-//    }
-    
     public int value(){
         return value;
     }

@@ -13,13 +13,10 @@ import java.util.Scanner;
  */
 public class Read extends Expr{
     public Scanner sc = new Scanner(System.in);
-    //public int num;
+
 
     public Read(){
-//        num = Integer.parseInt(sc.nextLine());
-//        sc.close();
-//        value = num;
-//        expr = ""+num;
+
     }
     
     public int value(){

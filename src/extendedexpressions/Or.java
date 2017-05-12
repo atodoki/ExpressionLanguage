@@ -10,9 +10,7 @@ package extendedexpressions;
  * @author arieltodoki
  */
 public class Or extends BiExpr{
-    public Or(){
-        
-    }
+
     public Or(Expr a, Expr b){
         one = a;
         two = b;

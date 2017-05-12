@@ -10,9 +10,7 @@ package extendedexpressions;
  * @author arieltodoki
  */
 public class Mult extends BiExpr{
-    public Mult(){
-        
-    }
+
     public Mult(Expr a, Expr b){
         //expr = "("+a.print()+" * "+b.print()+")";
 

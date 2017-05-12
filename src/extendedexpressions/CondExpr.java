@@ -15,9 +15,7 @@ public class CondExpr extends Expr{
     Expr three;
     boolean bool;
     
-    public CondExpr(){
-        
-    }
+
     public CondExpr(Expr a, Expr b, Expr c){
         bool = a.value() == 1; //move this out of constructor
         one = a;

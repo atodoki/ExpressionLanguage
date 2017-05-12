@@ -13,9 +13,7 @@ public class AssignExpr extends Expr{
     Expr one;
     Expr two;
     
-    public AssignExpr(){
-        
-    }
+
     public AssignExpr(Expr a, Expr b){
         one = a;
         two = b;

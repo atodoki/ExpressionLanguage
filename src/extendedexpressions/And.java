@@ -10,9 +10,7 @@ package extendedexpressions;
  * @author arieltodoki
  */
 public class And extends BiExpr{
-    public And(){
-        
-    }
+
     public And(Expr a, Expr b){
         one = a;
         two = b;

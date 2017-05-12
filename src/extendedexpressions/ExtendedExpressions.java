@@ -52,8 +52,8 @@ public class ExtendedExpressions {
         Scanner sc = new Scanner(System.in);
         HashMap<String,Integer> precedence = new HashMap<>();
         //Add to the hashmap
-//        precedence.put("(", 0);
-//        precedence.put(")", 0);
+        precedence.put("(", 0);
+        precedence.put(")", 0);
         precedence.put("|", 1);
         precedence.put("&", 1);
         precedence.put("==", 2);
@@ -73,6 +73,9 @@ public class ExtendedExpressions {
                 if (tokens[i].matches("\\d+")){
                     arg.push(new LitNum(Integer.parseInt(tokens[i])));
                 }
+                else if(tokens[i].matches("READ")){
+                    arg.push(new Read());
+                }
                 else if(tokens[i].matches("\\w+")){
                     arg.push(new Var(tokens[i]));
                 }
@@ -90,15 +93,29 @@ public class ExtendedExpressions {
                 }
                 
                 //operators
-
-                else if(op.empty()||precedence.get(op.peek())< precedence.get(tokens[i])){
+                else if(tokens[i].equalsIgnoreCase("(")){
+                    op.push(tokens[i]);
+                }
+                else if(op.empty()||op.peek().equalsIgnoreCase("(")||precedence.get(op.peek())< precedence.get(tokens[i])){
                     op.push(tokens[i]);
                 }
                 else if(precedence.get(op.peek())>=precedence.get(tokens[i])){
                     do{
                     String popped = op.pop();
-                    Expr right = arg.pop();
-                    Expr left = arg.pop();
+                    Expr right = new Expr();
+                    Expr left = new Expr();
+                    if(!arg.empty()){
+                        right = arg.pop();
+                    }
+                    else{
+                        System.exit(0);
+                    }
+                    if(!arg.empty()){
+                        left = arg.pop();
+                    }
+                    else{
+                        System.exit(0);
+                    }
                     switch(popped){
                         case "=":
                             arg.push(new AssignExpr(left,right));
@@ -126,10 +143,21 @@ public class ExtendedExpressions {
                             break;
                         case "|":
                             arg.push(new Or(left, right));
+                            break;
+                        case "(":
+                            break;
                         
                     }
-                    }while(!op.empty()&&precedence.get(op.peek())>=precedence.get(tokens[i]));
-                    op.push(tokens[i]);
+                    }while(!op.empty()&&!op.peek().equalsIgnoreCase("(")&&precedence.get(op.peek())>=precedence.get(tokens[i]));
+                    if(!tokens[i].equalsIgnoreCase(")")){
+                        op.push(tokens[i]);
+                    }
+                    if(op.peek().equalsIgnoreCase("(")){
+                        op.pop();
+                    }
+                }
+                else{
+                    System.out.println("ERROR");
                 }
                 
 
@@ -137,8 +165,20 @@ public class ExtendedExpressions {
             
             while(!op.empty()){
                 String popped = op.pop();
-                Expr right = arg.pop();
-                Expr left = arg.pop();
+                Expr right = new Expr();
+                Expr left = new Expr();
+                if(!arg.empty()){
+                    right = arg.pop();
+                }
+                else{
+                    System.exit(0);
+                }
+                if(!arg.empty()){
+                    left = arg.pop();
+                }
+                else{
+                    System.exit(0);    
+                }
                     switch(popped){
                         case "=":
                             arg.push(new AssignExpr(left,right));

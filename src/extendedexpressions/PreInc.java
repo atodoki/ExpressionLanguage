@@ -14,7 +14,7 @@ public class PreInc extends Expr{
     String var;
     public PreInc(Var v){
         var = v.print();
-        //expr = "("+"++"+var+")";
+
     }
     
     public int value(){

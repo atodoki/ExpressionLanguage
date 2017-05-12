@@ -15,7 +15,6 @@ public class PostInc extends Expr{
     public PostInc(Var v){
         var = v.print();
 
-        //expr = "("+var+"++)";
     }
     
     public int value(){
